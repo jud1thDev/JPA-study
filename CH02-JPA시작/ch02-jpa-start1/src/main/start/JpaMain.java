@@ -1,4 +1,4 @@
-package java.jpabook.start;
+package start;
 
 import jakarta.persistence.*;
 import java.util.List;
@@ -37,7 +37,7 @@ public class JpaMain {
     public static void logic(EntityManager em) {
 
         String id = "id1";
-        Member member = new Member();
+        start.Member member = new start.Member();
         member.setId(id);
         member.setUsername("지한");
         member.setAge(2);
@@ -50,11 +50,11 @@ public class JpaMain {
         member.setAge(20);
 
         // 1건 조회(PK로 조회): 조회 메서드를 실행하면 JPA가 SELECT SQL을 자동 실행한다.
-        Member findMember = em.find(Member.class, id);
+        start.Member findMember = em.find(start.Member.class, id);
         System.out.println("findMember=" + findMember.getUsername() + ", age=" + findMember.getAge());
 
         // 목록 조회(JPQL): 조회 메서드를 실행하면 JPA가 SELECT SQL을 자동 실행한다.
-        List<Member> members = em.createQuery("select m from Member m", Member.class).getResultList();
+        List<start.Member> members = em.createQuery("select m from Member m", start.Member.class).getResultList();
         System.out.println("members.size=" + members.size());
 
         // 삭제: remove()를 호출하면 JPA가 DELETE SQL을 자동 실행한다.
