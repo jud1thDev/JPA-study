@@ -1,11 +1,11 @@
-package jpabook.start;
+package java.jpabook.start;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
+import jpabook.start.Member;
 
-/**
- * @author holyeye
- */
+// 코드는 크게 3부분으로 나뉜다.
+// 엔티티 매니저 설정, 트랜잭션 관리, 비즈니스 로직.
 public class JpaMain {
 
     public static void main(String[] args) {
@@ -17,7 +17,6 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction(); //트랜잭션 기능 획득
 
         try {
-
 
             tx.begin(); //트랜잭션 시작
             logic(em);  //비즈니스 로직
