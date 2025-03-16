@@ -1,6 +1,6 @@
-package jpabook.start;
+package java.jpabook.start;
 
-import javax.persistence.*;  // JPA 어노테이션 패키지
+import jakarta.persistence.*; // JPA 어노테이션 패키지
 
 @Entity // 이 클래스를 테이블과 매핑한다고 JPA에게 알려준다.
 @Table(name="MEMBER") // 엔티티 클래스에 매핑할 테이블 정보를 알려준다. name 속성을 활용했다.
