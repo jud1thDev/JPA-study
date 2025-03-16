@@ -1,4 +1,4 @@
-package java.jpabook.start;
+package start;
 
 import jakarta.persistence.*; // JPA 어노테이션 패키지
 
