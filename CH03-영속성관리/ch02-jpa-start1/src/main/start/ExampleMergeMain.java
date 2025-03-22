@@ -22,6 +22,7 @@ public class ExampleMergeMain {
         Member member = new Member();
         member.setId(id);
         member.setUsername(username);
+        member.setAge(25);
         em1.persist(member);
         tx1.commit();
 
