@@ -50,4 +50,4 @@ my.cnf
 .DS_Store
 Thumbs.db
 
-src/main/resources/META-INF/persistence.xml
+**/src/main/resources/META-INF/persistence.xml
