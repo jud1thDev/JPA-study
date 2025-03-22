@@ -2,6 +2,7 @@ package main.start;
 
 import jakarta.persistence.*;
 import java.util.List;
+import start.Member;
 
 // 코드는 크게 3부분으로 나뉜다.
 // 엔티티 매니저 설정, 트랜잭션 관리, 비즈니스 로직.
