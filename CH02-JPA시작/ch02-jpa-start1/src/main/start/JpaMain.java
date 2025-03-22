@@ -10,8 +10,7 @@ public class JpaMain {
     public static void main(String[] args) {
 
         // 1. 엔티티 매니저 설정
-        // 엔티티 매니저 팩토리 생성
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpabook");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpabook"); // 엔티티 매니저 팩토리 생성
         EntityManager em = emf.createEntityManager(); // 엔티티 매니저 생성
 
         // 2. 트랜잭션 관리
@@ -37,7 +36,7 @@ public class JpaMain {
     public static void logic(EntityManager em) {
 
         String id = "id1";
-        start.Member member = new start.Member();
+        Member member = new Member();
         member.setId(id);
         member.setUsername("지한");
         member.setAge(2);
