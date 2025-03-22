@@ -49,3 +49,5 @@ my.cnf
 *.swp
 .DS_Store
 Thumbs.db
+
+src/main/resources/META-INF/persistence.xml
