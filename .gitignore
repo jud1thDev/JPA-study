@@ -51,3 +51,4 @@ my.cnf
 Thumbs.db
 
 **/src/main/resources/META-INF/persistence.xml
+/target/
