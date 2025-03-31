@@ -1,6 +1,9 @@
-package start;
+package main.start;
 
 import jakarta.persistence.*; // JPA 어노테이션 패키지
+import main.start.RoleType;
+
+import java.util.Date;
 
 @Entity // 이 클래스를 테이블과 매핑한다고 JPA에게 알려준다.
 // 엔티티 클래스에 매핑할 테이블 정보를 알려준다.
@@ -9,7 +12,7 @@ import jakarta.persistence.*; // JPA 어노테이션 패키지
         columnNames = {"NAME", "AGE"} )})
 public class Member {
 
-    @Id // 식별자 필드 표시
+    @Id @GeneratedValue
     @Column(name = "ID")
     private String id;
 
@@ -34,6 +37,9 @@ public class Member {
     @Lob
     private String description;
 
+    @Transient
+    private String temp;
+
     public String getId() {
         return id;
     }
@@ -56,5 +62,45 @@ public class Member {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public RoleType getRoleType() {
+        return roleType;
+    }
+
+    public void setRoleType(RoleType roleType) {
+        this.roleType = roleType;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Date getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
+    public void setLastModifiedDate(Date lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getTemp() {
+        return temp;
+    }
+
+    public void setTemp(String temp) {
+        this.temp = temp;
     }
 }
