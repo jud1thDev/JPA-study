@@ -3,7 +3,7 @@ import start.Member;
 
 import jakarta.persistence.*;
 
-public class ExampleMergeMain {
+public class JpaMain {
     static EntityManagerFactory emf =
             Persistence.createEntityManagerFactory("jpabook");
 
