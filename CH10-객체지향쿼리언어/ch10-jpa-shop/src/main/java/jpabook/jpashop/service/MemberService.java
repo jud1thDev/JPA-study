@@ -8,15 +8,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * User: HolyEyE
- * Date: 2013. 12. 3. Time: 오전 1:07
- */
-@Service
-@Transactional
+@Service // 스프링 빈으로 자동 등록: <context:component-scan>에 의해
+@Transactional  // 클래스나 메서드 단위로 트랜잭션 사용, 예외 발생 시 롤백
 public class MemberService {
 
-    @Autowired
+    @Autowired // 스프링 컨테이너가 적절한 스프링 빈(memberRepository)를 주입
     MemberRepository memberRepository;
 
     /**
