@@ -61,11 +61,11 @@
             <version>${hibernate.version}</version>
         </dependency>
 
-        <!-- H2 데이터베이스 -->
+        <!-- MySQL 데이터베이스 -->
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>${h2db.version}</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
             <scope>runtime</scope>
         </dependency>
 
