@@ -5,12 +5,8 @@
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-
-    <parent>
-        <groupId>jpabook</groupId>
-        <artifactId>ch02-jpa-start1</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
+    <groupId>jpabook</groupId>
+    <version>1.0-SNAPSHOT</version>
 
     <artifactId>ch10-jpa-shop</artifactId>
     <packaging>jar</packaging>
@@ -21,7 +17,7 @@
 
     <dependencies>
 
-        <!-- JPA API -->
+        <!-- JPA API (jakarta 기반) -->
         <dependency>
             <groupId>jakarta.persistence</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
@@ -35,10 +31,27 @@
             <version>6.2.0.Final</version>
         </dependency>
 
-        <!-- Spring Core -->
+        <!-- Spring Core & Web -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
+            <version>5.3.33</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>5.3.33</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.3.33</version>
+        </dependency>
+
+        <!-- Spring TX -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
             <version>5.3.33</version>
         </dependency>
 
@@ -69,6 +82,30 @@
             <version>2.1.1</version>
         </dependency>
 
+        <!-- Spring Test -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.3.33</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JUnit 4 -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- javax.persistence for tests -->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>2.2</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -97,7 +134,7 @@
                         </goals>
                         <configuration>
                             <outputDirectory>target/generated-sources/java</outputDirectory>
-                            <processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
+                            <processor>com.querydsl.apt.jpa.JakartaAnnotationProcessor</processor> <!-- jakarta 맞춰 수정-->
                         </configuration>
                     </execution>
                 </executions>

@@ -6,6 +6,7 @@
     <groupId>jpabook</groupId>
     <artifactId>ch02-jpa-start1</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <properties>
 
@@ -43,6 +44,10 @@
             <version>${mysql.version}</version>
         </dependency>
     </dependencies>
+
+    <modules>
+        <module>CH10-객체지향쿼리언어/ch10-jpa-shop</module>
+    </modules>
 
     <build>
         <plugins>
