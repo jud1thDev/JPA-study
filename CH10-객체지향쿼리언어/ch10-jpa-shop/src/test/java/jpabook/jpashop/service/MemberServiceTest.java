@@ -37,7 +37,7 @@ public class MemberServiceTest {
         Long saveId = memberService.join(member);
 
         // then: 저장된 회원과 동일한지 확인
-        assertEquals(member, memberRepository.findOne(saveId));
+        assertEquals(member, memberRepository.findById(saveId).orElse(null));
     }
 
     @Test(expected = IllegalStateException.class)

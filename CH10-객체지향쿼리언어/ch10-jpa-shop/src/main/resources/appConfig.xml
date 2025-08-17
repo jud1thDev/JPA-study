@@ -8,11 +8,16 @@
 
     <context:component-scan base-package="jpabook.jpashop.service, jpabook.jpashop.repository"/>
 
-    <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource">
-        <property name="driverClassName" value="org.h2.Driver"/>
-        <property name="url" value="jdbc:h2:mem:jpashop"/>
-        <property name="username" value="sa"/>
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/jpashop?useSSL=false&amp;serverTimezone=UTC&amp;characterEncoding=UTF-8"/>
+        <property name="username" value="root"/>
         <property name="password" value=""/>
+        <property name="maximumPoolSize" value="10"/>
+        <property name="minimumIdle" value="5"/>
+        <property name="connectionTimeout" value="30000"/>
+        <property name="idleTimeout" value="600000"/>
+        <property name="maxLifetime" value="1800000"/>
     </bean>
 
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
@@ -24,19 +29,20 @@
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="jpabook.jpashop.domain"/> <!-- @Entity 탐색 시작 위치 -->
+        <property name="packagesToScan" value="jpabook.jpashop.domain"/>
         <property name="jpaVendorAdapter">
-            <!-- 하이버네이트 구현체 사용 -->
-            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="databasePlatform" value="org.hibernate.dialect.MySQL8Dialect"/>
+                <property name="showSql" value="true"/>
+                <property name="generateDdl" value="true"/>
+            </bean>
         </property>
-        <property name="jpaProperties"> <!-- 하이버네이트 상세 설정 -->
+        <property name="jpaProperties">
             <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop> <!-- 방언 -->
-                <prop key="hibernate.show_sql">true</prop>                   <!-- SQL 보기 -->
-                <prop key="hibernate.format_sql">true</prop>                 <!-- SQL 정렬해서 보기 -->
-                <prop key="hibernate.use_sql_comments">true</prop>           <!-- SQL 코멘트 보기 -->
-                <prop key="hibernate.id.new_generator_mappings">true</prop>  <!-- 새 버전의 ID 생성 옵션 -->
-                <prop key="hibernate.hbm2ddl.auto">create</prop>             <!-- DDL 자동 생성 -->
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.use_sql_comments">true</prop>
+                <prop key="hibernate.id.new_generator_mappings">true</prop>
             </props>
         </property>
     </bean>
