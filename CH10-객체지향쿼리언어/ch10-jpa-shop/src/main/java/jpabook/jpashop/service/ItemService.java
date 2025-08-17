@@ -1,6 +1,6 @@
 package jpabook.jpashop.service;
 
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
