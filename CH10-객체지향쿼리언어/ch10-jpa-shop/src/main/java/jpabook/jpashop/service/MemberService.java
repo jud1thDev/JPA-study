@@ -40,6 +40,7 @@ public class MemberService {
     }
 
     public Member findOne(Long memberId) {
-        return memberRepository.findOne(memberId);
+        return memberRepository.findById(memberId)
+            .orElseThrow(() -> new IllegalArgumentException("해당 회원이 없습니다. id=" + memberId));
     }
 }
