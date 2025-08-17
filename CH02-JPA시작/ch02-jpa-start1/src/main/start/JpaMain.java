@@ -42,6 +42,7 @@ public class JpaMain {
         member.setUsername("지한");
         member.setAge(2);
 
+
         // 생성: persist()를 호출하면 JPA가 INSERT SQL을 자동 실행한다.
         // 엔티티 영속 - 1차 캐시에 저장.
         em.persist(member);
