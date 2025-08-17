@@ -1,6 +1,6 @@
 package jpabook.jpashop.service;
 
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 import jpabook.jpashop.domain.Delivery;
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
@@ -11,6 +11,7 @@ import jpabook.jpashop.repository.MemberRepository;
 import jpabook.jpashop.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.util.List;
 
@@ -58,11 +59,10 @@ public class OrderService {
         order.cancel();
     }
 
-                    /** 주문 검색 */
+                                        /** 주문 검색 */
                 public List<Order> findOrders(OrderSearch orderSearch) {
-                    // Spring Data JPA의 기본 findAll() 메소드 사용
-                    // 실제 검색 로직은 필요에 따라 구현
-                    return orderRepository.findAll();
+                    // 책 내용과 동일하게 구현
+                    return orderRepository.findAll(orderSearch.toSpecification());
                 }
 
 }
